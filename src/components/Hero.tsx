@@ -37,7 +37,7 @@ export default function Hero({ onOpenConsultation }: HeroProps) {
   return (
     <section
       id="hero"
-      className="section-shell relative flex min-h-screen items-center justify-center overflow-hidden bg-[var(--theme-bg)] pb-14 sm:pb-20 pt-24 sm:pt-28 text-[var(--theme-text)]"
+        className="section-shell relative flex min-h-screen items-center justify-center overflow-hidden bg-[var(--theme-bg)] pb-14 sm:pb-20 pt-0 sm:pt-4 text-[var(--theme-text)]"
     >
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,_var(--theme-bg),_var(--theme-bg-secondary),_var(--theme-bg-dark))] opacity-95" />
       <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-[var(--theme-bg-secondary)]/40 to-transparent" />

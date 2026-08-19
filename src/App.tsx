@@ -35,7 +35,7 @@ export default function App() {
       </a>
 
       <ErrorBoundary>
-        <main id="main" className="min-h-screen bg-[var(--theme-bg)] text-[var(--theme-text)] relative">
+        <main id="main" className="min-h-screen bg-[var(--theme-bg)] text-[var(--theme-text)] relative pt-28 sm:pt-32">
           {/* Sticky Blurred Header */}
           <Navbar onOpenConsultation={() => setIsConsultationOpen(true)} />
 
