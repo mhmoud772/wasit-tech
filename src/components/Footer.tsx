@@ -57,7 +57,7 @@ export default function Footer() {
                 <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
               </a>
               <a
-                href={`tel:${COMPANY.phoneE164}`}
+                href={`tel:+${COMPANY.phoneE164}`}
                 className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl border border-[var(--theme-border)] bg-[var(--theme-bg-secondary)] text-[var(--theme-text-secondary)] transition-colors hover:border-wasit-teal hover:text-wasit-teal"
                 aria-label="الاتصال الهاتفي"
               >

@@ -83,7 +83,7 @@ export default function Contact({ selectedServicePreFill = '' }: ContactProps) {
               <div className="space-y-4 sm:space-y-6">
                 {/* Phone */}
                 <a
-                  href={`tel:${COMPANY.phoneE164}`}
+                  href={`tel:+${COMPANY.phoneE164}`}
                   className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[var(--theme-bg-secondary)]/60 border border-[var(--theme-border)] hover:border-wasit-teal/40 transition-colors group"
                 >
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-wasit-teal/20 border border-wasit-teal/40 flex items-center justify-center text-wasit-teal group-hover:scale-110 transition-transform flex-shrink-0">
