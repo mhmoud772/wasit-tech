@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 const GA4_ID = import.meta.env.VITE_GA4_ID ?? '';
 const META_PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID ?? '';
 const HOTJAR_ID = import.meta.env.VITE_HOTJAR_ID ?? '';
-const SITE_URL = 'https://wasit.tech';
+const SITE_URL = 'https://wasitech.net';
 
 function injectScript(id: string, attrs: Record<string, string>, parent = document.head) {
   const s = document.createElement('script');
@@ -28,7 +28,7 @@ export default function Analytics() {
         window.dataLayer!.push(args);
       }
       gtag('js', new Date());
-      gtag('config', GA4_ID, { page_path: window.location.pathname, cookie_domain: 'wasit.tech' });
+      gtag('config', GA4_ID, { page_path: window.location.pathname, cookie_domain: 'wasitech.net' });
     }
 
     // Meta (Facebook) Pixel

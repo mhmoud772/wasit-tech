@@ -45,5 +45,5 @@ npm run build
 ## التواصل
 
 - واتساب: +967 777 550 9234
-- البريد: info@wasit.tech
-- الموقع: https://wasit.tech
+- البريد: info@wasitech.net
+- الموقع: https://wasitech.net

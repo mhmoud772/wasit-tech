@@ -3,8 +3,8 @@ export const COMPANY = {
   nameShort: 'وسيط-تك',
   phoneDisplay: '+967 777 550 9234',
   phoneE164: '9677775509234',
-  email: 'info@wasit.tech',
-  website: 'https://wasit.tech',
+  email: 'info@wasitech.net',
+  website: 'https://wasitech.net',
 } as const;
 
 export const SERVICE_OPTIONS = [
