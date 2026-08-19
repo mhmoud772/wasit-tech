@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -10,16 +11,17 @@ module.exports = {
     extend: {
       colors: {
         wasit: {
-          teal: "#1D7C8A",
-          "teal-dark": "#145963",
-          "teal-light": "#2BB3C7",
-          navy: "#0B132B",
-          "navy-light": "#151E33",
-          "navy-dark": "#070C1B",
-          gold: "#C5A059",
-          "gold-light": "#D8B26B",
-          "gold-dark": "#9A7A3B",
-          gray: "#F8FAFC",
+          // الألوان الرسمية من دليل الهوية البصرية
+          teal: "#339999",        // PRIMARY COLOR
+          "teal-dark": "#236B6B", // Darker teal derivative
+          "teal-light": "#4db3b3",
+          navy: "#1A1A2E",        // DARK NAVY
+          "navy-light": "#252545",
+          "navy-dark": "#121223",
+          gold: "#C5B37C",        // OLIVE / GOLD
+          "gold-light": "#d4c493",
+          "gold-dark": "#9a8a55",
+          gray: "var(--theme-text)",
         },
       },
       fontFamily: {

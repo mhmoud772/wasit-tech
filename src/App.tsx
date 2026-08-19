@@ -2,8 +2,10 @@ import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import WhyChooseUs from './components/WhyChooseUs';
 import Services from './components/Services';
 import Partners from './components/Partners';
+import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import WhatsAppButton from './components/WhatsAppButton';
 import ConsultationModal from './components/ConsultationModal';
@@ -33,7 +35,7 @@ export default function App() {
       </a>
 
       <ErrorBoundary>
-        <main id="main" className="min-h-screen bg-wasit-navy text-slate-100 relative">
+        <main id="main" className="min-h-screen bg-[var(--theme-bg)] text-[var(--theme-text)] relative">
           {/* Sticky Blurred Header */}
           <Navbar onOpenConsultation={() => setIsConsultationOpen(true)} />
 
@@ -43,11 +45,17 @@ export default function App() {
           {/* About Us Section */}
           <About />
 
+          {/* Why Choose Us Section */}
+          <WhyChooseUs />
+
           {/* Services Grid Section */}
           <Services onSelectService={handleSelectService} />
 
           {/* Partners & Clients Section */}
           <Partners />
+
+          {/* FAQ Section */}
+          <FAQ />
 
           {/* Contact Section */}
           <Contact selectedServicePreFill={selectedService} />

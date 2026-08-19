@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, PhoneCall, ChevronLeft } from 'lucide-react';
+import { Menu, X, PhoneCall, ChevronLeft, Sparkles } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 interface NavbarProps {
   onOpenConsultation: () => void;
@@ -34,107 +35,132 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
     return () => observer.disconnect();
   }, []);
 
+  const handleNavClick = (href: string) => {
+    setMobileMenuOpen(false);
+    const target = document.querySelector(href);
+    if (target) {
+      const offset = 100;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
   const navLinks = [
     { name: 'الرئيسية', href: '#hero' },
     { name: 'من نحن', href: '#about' },
     { name: 'الخدمات', href: '#services' },
-    { name: 'شركاء النجاح', href: '#partners' },
-    { name: 'اتصل بنا', href: '#contact' },
+    { name: 'شركاء', href: '#partners' },
+    { name: 'الأسئلة', href: '#faq' },
+    { name: 'اتصل', href: '#contact' },
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#0B132B]/90 backdrop-blur-md border-b border-slate-800/80 shadow-md py-3'
-          : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Right side: Brand Logo seamlessly integrated without dark square frame */}
-          <a
-            href="#hero"
-            className="flex items-center gap-3.5 group focus:outline-none"
-            aria-label="Wasit Tech Homepage"
-          >
-            <img
-              src="/logo-white.png"
-              alt="وسيط-تك WASIT-TECH Logo"
-              className="h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
-            />
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold tracking-tight text-white flex items-center gap-1">
-                وسيط<span className="text-wasit-teal">-تك</span>
-              </span>
-              <span className="text-[11px] font-medium text-wasit-gold tracking-widest uppercase">
-                WASIT-TECH
-              </span>
-            </div>
-          </a>
+    <header className="fixed left-0 right-0 top-0 z-50">
+      <div className="border-b border-white/10 bg-[rgba(10,16,25,0.78)] py-2 text-[11px] text-slate-200 backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl items-center justify-center gap-2 px-4 text-center sm:px-6 lg:px-8">
+          <Sparkles className="h-3.5 w-3.5 text-wasit-gold" />
+          <span>استشارات تقنية متخصصة • دعم فني مستمر • أمان عالي</span>
+        </div>
+      </div>
 
-          {/* Middle: Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-[#151E33]/70 border border-slate-800 rounded-full px-5 py-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                aria-current={activeSection === link.href ? 'page' : undefined}
-                className={`px-4 py-1.5 text-sm font-medium rounded-full transition-colors ${
-                  activeSection === link.href
-                    ? 'text-white bg-white/10'
-                    : 'text-slate-300 hover:text-white hover:bg-white/5'
-                }`}
+      <div
+        className={`transition-all duration-300 ${
+          isScrolled
+            ? 'border-b border-[var(--theme-border)] bg-[var(--theme-bg)]/85 shadow-[0_10px_30px_-20px_rgba(15,23,42,0.55)] backdrop-blur-xl'
+            : 'bg-transparent'
+        }`}
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
+          <div className="glass-panel flex items-center justify-between rounded-full px-3 py-2.5 shadow-[0_15px_40px_-25px_rgba(15,23,42,0.35)]">
+            <a
+              href="#hero"
+              className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none"
+              aria-label="وسيط-تك WASIT-TECH"
+            >
+              <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-[var(--theme-border)] bg-[var(--theme-bg-secondary)] p-1.5 shadow-sm transition-transform group-hover:scale-105">
+                <img
+                  src="/icon.png"
+                  alt="وسيط-تك Icon"
+                  className="h-full w-full object-contain dark:hidden"
+                />
+                <img
+                  src="/icon-dark.png"
+                  alt="وسيط-تك Icon"
+                  className="hidden h-full w-full object-contain dark:block"
+                />
+              </div>
+              <div className="flex flex-col text-right">
+                <span className="text-sm sm:text-base font-black leading-tight text-[var(--theme-text)]">
+                  وسيط<span className="text-wasit-teal">-تك</span>
+                </span>
+                <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.18em] text-wasit-gold">
+                  WASIT-TECH
+                </span>
+              </div>
+            </a>
+
+            <nav className="hidden items-center gap-1 rounded-full border border-[var(--theme-border)] bg-[var(--theme-bg-secondary)]/70 px-2 py-2 md:flex">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                  aria-current={activeSection === link.href ? 'page' : undefined}
+                  className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
+                    activeSection === link.href
+                      ? 'bg-[var(--theme-bg)] text-[var(--theme-text)] shadow-sm ring-1 ring-[var(--theme-border)]'
+                      : 'text-[var(--theme-text-secondary)] hover:bg-[var(--theme-bg)]/50 hover:text-[var(--theme-text)]'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              ))}
+            </nav>
+
+            <div className="flex items-center gap-3">
+              <ThemeToggle />
+
+              <button
+                onClick={onOpenConsultation}
+                className="hidden rounded-full bg-gradient-to-r from-wasit-teal to-wasit-teal-dark px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-wasit-teal/30 transition-all hover:-translate-y-0.5 hover:shadow-wasit-teal/40 sm:inline-flex sm:items-center sm:justify-center sm:gap-2"
               >
-                {link.name}
-              </a>
-            ))}
-          </nav>
+                <span>طلب استشارة</span>
+                <ChevronLeft className="h-4 w-4" />
+              </button>
 
-          {/* Left side: CTA Button & Mobile Trigger */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={onOpenConsultation}
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm text-white bg-wasit-teal hover:bg-wasit-teal-dark shadow-sm transition-all active:scale-95 cursor-pointer"
-            >
-              <span>طلب استشارة</span>
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-
-            {/* Mobile Menu Toggle Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg bg-[#151E33] border border-slate-700 text-slate-200 hover:text-white transition-colors cursor-pointer"
-              aria-label="القائمة الرئيسية"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="cursor-pointer rounded-full border border-[var(--theme-border)] bg-[var(--theme-bg-secondary)] p-2.5 text-[var(--theme-text)] transition-colors hover:text-wasit-teal md:hidden"
+                aria-label="القائمة الرئيسية"
+              >
+                {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#070C1B]/95 backdrop-blur-xl border-b border-slate-800 px-4 pt-4 pb-6 space-y-3 mt-3 shadow-xl">
+        <div className="mt-0 border-b border-[var(--theme-border)] bg-[var(--theme-bg)]/95 px-4 pb-6 pt-4 shadow-xl backdrop-blur-xl md:hidden">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-2.5 text-base font-medium text-slate-200 hover:text-wasit-teal hover:bg-white/5 rounded-lg transition-all"
+              onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+              className="block rounded-xl px-4 py-2.5 text-base font-medium text-[var(--theme-text-secondary)] transition-all hover:bg-[var(--theme-bg-secondary)]/60 hover:text-wasit-teal"
             >
               {link.name}
             </a>
           ))}
-          <div className="pt-2">
+          <div className="pt-3">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenConsultation();
+                handleNavClick('#contact');
               }}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-lg font-semibold text-white bg-wasit-teal hover:bg-wasit-teal-dark shadow-sm cursor-pointer"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-wasit-teal to-wasit-teal-dark py-3 font-semibold text-white shadow-sm"
             >
-              <PhoneCall className="w-4 h-4 text-wasit-gold" />
+              <PhoneCall className="h-4 w-4 text-wasit-gold" />
               <span>طلب استشارة تقنية فورية</span>
             </button>
           </div>

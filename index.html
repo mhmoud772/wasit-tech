@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
   <head>
+    <script>
+      // تطبيق الثيم فوراً قبل رسم الصفحة لتجنب الوميض
+      (function() {
+        var saved = localStorage.getItem('theme');
+        var dark = saved ? saved === 'dark' : true;
+        if (dark) document.documentElement.classList.add('dark');
+      })();
+    </script>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/logo-dark.jpg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <meta name="theme-color" content="#0B132B" />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="وسيط تك, Wasit Tech, التحول الرقمي, البنية التحتية, الشبكات, الأتمتة, الذكاء الاصطناعي, استشارات تقنية" />
     <title>وسيط-تك | WASIT-TECH - شريكك الموثوق في التحول الرقمي</title>
     <meta name="description" content="حلول تقنية متكاملة في البنية التحتية، الأتمتة والذكاء الاصطناعي لتطوير أعمالك وتوسيع نطاق استثماراتك." />
     <link rel="canonical" href="https://wasit.tech/" />
@@ -15,6 +27,8 @@
     <meta property="og:site_name" content="WASIT-TECH" />
     <meta property="og:locale" content="ar_YE" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="وسيط-تك | WASIT-TECH" />
+    <meta name="twitter:description" content="شريكك الموثوق في التحول الرقمي، البنية التحتية، والأتمتة والذكاء الاصطناعي." />
 
     <!-- Google Fonts: IBM Plex Sans Arabic & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +39,7 @@
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "وسيط-تك WASIT-TECH",
+        "name": "وسيط-tek WASIT-TECH",
         "url": "https://wasit.tech/",
         "logo": "https://wasit.tech/logo-horizontal.jpg",
         "email": "info@wasit.tech",
@@ -33,12 +47,139 @@
         "description": "شريكك الموثوق في التحول الرقمي. حلول تقنية متكاملة في البنية التحتية، الأتمتة، والذكاء الاصطناعي.",
         "address": {
           "@type": "PostalAddress",
-          "addressCountry": "YE"
+          "addressCountry": "YE",
+          "addressRegion": "صنعاء"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "وسيط-tek WASIT-TECH",
+        "url": "https://wasit.tech",
+        "telephone": "+9677775509234",
+        "email": "info@wasit.tech",
+        "description": "شركة استشارات تقنية متخصصة في التحول الرقمي، البنية التحتية، الأتمتة والذكاء الاصطناعي.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "YE",
+          "addressRegion": "صنعاء",
+          "addressLocality": "صنعاء"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 15.3694,
+          "longitude": 44.191
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        "priceRange": "$$"
+      }
+    </script>
+    <script type="application/ld+json">
+      [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "التحول الرقمي وتطوير الأنظمة",
+          "provider": {"@type": "Organization", "name": "وسيط-tek WASIT-TECH"},
+          "description": "تحويل الأفكار والعمليات التقليدية إلى حلول تقنية عملية متكاملة وتطوير الأنظمة والتطبيقات ب最新 المنهجيات البرمجية.",
+          "areaServed": {"@type": "Country", "name": "اليمن"},
+          "url": "https://wasit.tech/#services"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "البنية التحتية والشبكات",
+          "provider": {"@type": "Organization", "name": "وسيط-tek WASIT-TECH"},
+          "description": "تصميم وتأمين الشبكات المعقدة، إدارة وتكوين السيرفرات والخوادم السحابية، وضمان استقرار الأداء.",
+          "areaServed": {"@type": "Country", "name": "اليمن"},
+          "url": "https://wasit.tech/#services"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "الأتمتة والذكاء الاصطناعي",
+          "provider": {"@type": "Organization", "name": "وسيط-tek WASIT-TECH"},
+          "description": "أتمتة العمليات التشغيلية المكررة، رفع الكفاءة الإنتاجية، وتطبيق حلول الذكاء الاصطناعي التنبؤي.",
+          "areaServed": {"@type": "Country", "name": "اليمن"},
+          "url": "https://wasit.tech/#services"
+        }
+      ]
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "ما هي الخدمات التي تقدمها وسيط-tek؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "نقدم خدمات التحول الرقمي، تطوير الأنظمة المؤسسية، تأمين الشبكات والبنية التحتية، الأتمتة، والذكاء الاصطناعي، مع دعم فني مستمر ومراقبة دقيقة للأداء."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "هل يمكنكم العمل مع الشركات الصغيرة والمتوسطة؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "نعم، نحن نعمل مع مختلف أحجام المؤسسات، ونصمم الحلول بما يتناسب مع مرحلة نمو المؤسسة ومتطلبات التشغيل والميزانية المتاحة."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "كيف يتم التواصل مع الفريق؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "يمكنك إرسال تفاصيل طلبك عبر نموذج الاتصال أو عبر واتساب مباشرة. سنتواصل معك لتحديد الاحتياج الفني ثم نعرض لك الخطة الأنسب."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "هل توفرون دعمًا بعد التنفيذ؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "بالتأكيد. نقدم دعمًا مستمرًا للمراقبة، التحديثات، الاستجابة السريعة، وتحسينات الأداء بناءً على احتياجات التشغيل الحقيقي."
+            }
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://wasit.tech"},
+          {"@type": "ListItem", "position": 2, "name": "خدماتنا", "item": "https://wasit.tech/#services"},
+          {"@type": "ListItem", "position": 3, "name": "من نحن", "item": "https://wasit.tech/#about"},
+          {"@type": "ListItem", "position": 4, "name": "تواصل معنا", "item": "https://wasit.tech/#contact"}
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "وسيط-tek WASIT-TECH",
+        "url": "https://wasit.tech",
+        "inLanguage": "ar",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://wasit.tech/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
         }
       }
     </script>
   </head>
-  <body class="bg-[#0B132B] text-slate-100 font-arabic antialiased selection:bg-[#1D7C8A] selection:text-white">
+  <body class="bg-[var(--theme-bg)] text-[var(--theme-text)] font-arabic antialiased selection:bg-[#1D7C8A] selection:text-white">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

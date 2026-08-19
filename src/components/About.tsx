@@ -21,7 +21,7 @@ export default function About() {
       value: '24 / 7',
       desc: 'فريق استشاري وهندسي متخصص لضمان الاستمرارية',
       icon: ShieldAlert,
-      color: 'text-emerald-400',
+      color: 'text-emerald-500 dark:text-emerald-400',
     },
   ];
 
@@ -44,77 +44,70 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-24 bg-wasit-navy-dark relative overflow-hidden border-t border-white/5">
-      {/* Subtle Background Elements */}
-      <div className="absolute top-1/2 left-0 w-72 h-72 bg-wasit-teal/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-wasit-gold/10 rounded-full blur-3xl pointer-events-none" />
+    <section id="about" className="section-shell relative overflow-hidden border-t border-[var(--theme-border)] bg-[var(--theme-bg-dark)] py-24">
+      <div className="absolute left-0 top-1/2 h-72 w-72 rounded-full bg-wasit-teal/10 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-wasit-gold/10 blur-3xl" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-wasit-navy border border-wasit-teal/30 text-wasit-teal text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-10 sm:mb-16 max-w-3xl space-y-3 sm:space-y-4 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-wasit-teal/30 bg-[var(--theme-bg-secondary)] px-3 sm:px-3.5 py-1 sm:py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-wasit-teal">
+            <img src="/icon-dark.png" alt="Wasit Icon" className="hidden dark:block h-3.5 w-auto object-contain" />
+            <img src="/icon.png" alt="Wasit Icon" className="block dark:hidden h-3.5 w-auto object-contain" />
             <span>عن وسيط-تك (WASIT-TECH)</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black leading-tight text-[var(--theme-text)]">
             نبتكر الحلول التقنية لتصنع{' '}
-            <span className="text-gradient-teal-gold">التميز والتحول الفعلي</span>
+            <span className="inline-block text-gradient-teal-gold">التميز والتحول الفعلي</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-            تأسست وسيط-تك لتكون الجسر التقني والموثوق للشركات والمؤسسات، حيث نجمع بين خبرات البنية التحتية الصلبة، شبكات الاتصالات، وأحدث تطبيقات الذكاء الاصطناعي والأتمتة.
+          <p className="text-sm leading-relaxed text-[var(--theme-text-secondary)] sm:text-base lg:text-lg">
+            تأسست وسيط-tek لتكون الجسر التقني والموثوق للشركات والمؤسسات، حيث نجمع بين خبرات البنية التحتية الصلبة، شبكات الاتصالات، وأحدث تطبيقات الذكاء الاصطناعي والأتمتة.
           </p>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        <div className="mb-12 sm:mb-20 grid grid-cols-1 gap-4 sm:gap-8 md:grid-cols-3">
           {stats.map((stat, idx) => {
             const IconComponent = stat.icon;
             return (
               <div
                 key={idx}
-                className="relative group p-8 rounded-2xl bg-wasit-navy/80 border border-white/10 hover:border-wasit-teal/50 shadow-xl glass-card-hover transition-all duration-300"
+                className="group rounded-2xl border border-[var(--theme-border)] bg-[var(--theme-bg-secondary)]/80 p-5 sm:p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-wasit-teal/40 hover:shadow-md"
               >
-                <div className="flex items-center justify-between mb-6">
-                  <div className={`w-14 h-14 rounded-xl bg-wasit-navy-light border border-white/10 flex items-center justify-center ${stat.color}`}>
-                    <IconComponent className="w-7 h-7" />
+                <div className="mb-4 sm:mb-6 flex items-center justify-between">
+                  <div className={`flex h-11 w-11 sm:h-14 sm:w-14 items-center justify-center rounded-xl border border-[var(--theme-border)] bg-[var(--theme-bg)] ${stat.color}`}>
+                    <IconComponent className="h-6 w-6 sm:h-7 sm:w-7" />
                   </div>
-                  <span className="text-xs font-bold text-slate-400 bg-white/5 px-3 py-1 rounded-full border border-white/5">
+                  <span className="rounded-full border border-[var(--theme-border)] bg-[var(--theme-bg)]/50 px-2.5 sm:px-3 py-1 text-[10px] sm:text-xs font-bold text-[var(--theme-text-muted)]">
                     مؤشر أداء
                   </span>
                 </div>
                 <div className="space-y-2">
-                  <div className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${stat.color}`}>
+                  <div className={`text-2xl font-extrabold tracking-tight sm:text-4xl ${stat.color}`}>
                     {stat.value}
                   </div>
-                  <h3 className="text-lg font-bold text-white">{stat.label}</h3>
-                  <p className="text-sm text-slate-400 font-normal leading-relaxed">
-                    {stat.desc}
-                  </p>
+                  <h3 className="text-base font-bold text-[var(--theme-text)] sm:text-lg">{stat.label}</h3>
+                  <p className="text-xs leading-relaxed text-[var(--theme-text-muted)] sm:text-sm">{stat.desc}</p>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Vision & Core Pillars Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-4 sm:gap-8 md:grid-cols-3">
           {values.map((val, idx) => {
             const IconComp = val.icon;
             return (
               <div
                 key={idx}
-                className="p-8 rounded-2xl bg-gradient-to-b from-wasit-navy to-wasit-navy-light/90 border border-wasit-gold/20 hover:border-wasit-gold/50 shadow-lg space-y-4 transition-all duration-300 group hover:-translate-y-1"
+                className="group space-y-3 rounded-2xl border border-[var(--theme-border)] bg-[var(--theme-bg)] p-5 sm:p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-wasit-gold/40"
               >
-                <div className="w-12 h-12 rounded-xl bg-wasit-gold/15 border border-wasit-gold/30 flex items-center justify-center text-wasit-gold group-hover:scale-110 transition-transform">
-                  <IconComp className="w-6 h-6" />
+                <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl border border-wasit-gold/30 bg-wasit-gold/15 text-wasit-gold transition-transform group-hover:scale-110">
+                  <IconComp className="h-5 w-5 sm:h-6 sm:w-6" />
                 </div>
-                <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                <h3 className="flex items-center gap-2 text-lg font-bold text-[var(--theme-text)] sm:text-xl">
                   <span>{val.title}</span>
-                  <CheckCircle className="w-4 h-4 text-wasit-teal opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <CheckCircle className="h-4 w-4 text-wasit-teal opacity-0 transition-opacity group-hover:opacity-100" />
                 </h3>
-                <p className="text-sm text-slate-300 leading-relaxed font-normal">
-                  {val.description}
-                </p>
+                <p className="text-xs leading-relaxed text-[var(--theme-text-secondary)] sm:text-sm">{val.description}</p>
               </div>
             );
           })}

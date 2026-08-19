@@ -12,9 +12,9 @@
 
 ## التقنيات
 
-- **Vite + React + TypeScript** — النسخة النشطة (`src/`)
+- **Vite + React + TypeScript** — المصدر الأساسي للتطبيق (`src/`)
 - **Tailwind CSS** — التصميم
-- **Next.js** — نسخة مزامنة (`app/` + `components/`)
+- **Next.js** — غلاف توافق فقط (`app/` + `components/`) لا يُعد مصدر بيانات مستقل
 
 ## التشغيل محلياً
 
@@ -27,19 +27,19 @@ npm run dev
 
 ## مزامنة نسخة Next.js
 
-تظل النسختان متطابقتين عبر سكربت المزامنة:
+يستخدم المشروع Vite كنسخة أساسية؛ ويُبقي Next.js كغلاف توافق، مع سكربت مزامنة يضمن أن النسخة المساعدة تبقى متوافقة:
 
 ```bash
 npm run sync:next
 ```
 
-يحوّل المكونات من `src/components` إلى `components/` مع إضافة `'use client'` وإعادة كتابة استيرادات `config`. **لا تعدّل ملفات `components/` يدوياً.**
+يحوّل المكونات من `src/components` إلى `components/` مع إضافة `'use client'` وإعادة كتابة الاستيرادات اللازمة. **لا تعدّل ملفات `components/` يدوياً.**
 
-## البناء
+## البناء والتحقق
 
 ```bash
-npm run build        # بناء نسخة Vite في dist/
-npx next build       # بناء نسخة Next.js
+npm run typecheck
+npm run build
 ```
 
 ## التواصل
