@@ -298,8 +298,8 @@ button, a {
 
 /* Mobile touch optimization */
 @media (max-width: 640px) {
-  /* Ensure minimum 44px touch targets for all interactive elements */
-  button, a, input, select, textarea {
+  /* Ensure minimum 44px touch targets for primary interactive elements */
+  button:not(.icon-btn), input, select, textarea {
     min-height: 44px;
   }
 

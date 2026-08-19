@@ -44,7 +44,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="section-shell relative overflow-hidden border-t border-[var(--theme-border)] bg-[var(--theme-bg-dark)] py-24">
+    <section id="about" className="section-shell relative overflow-hidden border-t border-[var(--theme-border)] bg-[var(--theme-bg-dark)] py-16 sm:py-24">
       <div className="absolute left-0 top-1/2 h-72 w-72 rounded-full bg-wasit-teal/10 blur-3xl" />
       <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-wasit-gold/10 blur-3xl" />
 
