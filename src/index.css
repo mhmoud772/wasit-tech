@@ -39,6 +39,10 @@ html {
   color: var(--theme-text);
 }
 
+:root {
+  --header-height: 0px;
+}
+
 body {
   overflow-x: hidden;
   background:
@@ -334,5 +338,42 @@ button, a {
 @media print {
   .section-shell, header, footer, [data-testid="whatsapp-button"] {
     break-inside: avoid;
+  }
+}
+
+/* ====== Header / Chat widget collision fixes ====== */
+/* Ensure header stays above embedded widgets */
+#site-header {
+  z-index: 99999;
+}
+
+/* Prefer Chatwoot/widget names: move launcher to bottom-right and keep it under header z-index */
+.chatwoot-launcher,
+.cw-widget,
+.cw-launcher,
+.chatwoot-widget,
+.chatwoot-bubble {
+  top: auto !important;
+  bottom: 20px !important;
+  right: 16px !important;
+  left: auto !important;
+  z-index: 99990 !important;
+}
+
+/* If any integration inserts a fixed top bar, ensure it's pushed below header */
+.chatwoot-launcher[data-position="top"],
+.cw-banner,
+.cw-topbar {
+  top: calc(var(--header-height, 0px) + 8px) !important;
+}
+
+/* Small screens: give more bottom space to avoid overlapping floating actions */
+@media (max-width: 640px) {
+  .chatwoot-launcher,
+  .cw-widget,
+  .cw-launcher,
+  .chatwoot-widget,
+  .chatwoot-bubble {
+    bottom: 78px !important; /* above footer / other floating buttons */
   }
 }
