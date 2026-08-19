@@ -2,12 +2,12 @@ import { Sun, Moon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // قراءة الثيم المحفوظ أو استخدام الداكن كافتراضي
+    // قراءة الثيم المحفوظ أو استخدام الفاتح كافتراضي
     const saved = localStorage.getItem('theme');
-    const dark = saved ? saved === 'dark' : true;
+    const dark = saved ? saved === 'dark' : false;
     setIsDark(dark);
     document.documentElement.classList.toggle('dark', dark);
   }, []);
